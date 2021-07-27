@@ -1,5 +1,5 @@
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type LayoutProps = {
 export function Main(props: LayoutProps) {
   const { children, className } = props;
 
-  const classes = classNames(["container mx-auto", className]);
+  const classes = classNames(['container mx-auto', className]);
 
   return <div className={classes}>{children}</div>;
 }

@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { todos_set_input } from "./globalTypes";
+import { todos_set_input } from './globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: updateTodo
 // ====================================================
 
 export interface updateTodo_update_todos_by_pk {
-  __typename: "todos";
+  __typename: 'todos';
   id: gql_uuid;
   todo: string;
   done: boolean;

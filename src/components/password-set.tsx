@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { Button, TextField } from "components/ui";
-import { auth } from "utils/nhost";
-import { SvgLoading } from "components/svg";
+import React, { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Button, TextField } from 'components/ui';
+import { auth } from 'utils/nhost';
+import { SvgLoading } from 'components/svg';
 
 export function PasswordSet() {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [completed, setCompleted] = useState(false);
 
   const { ticket } = useParams();
@@ -55,19 +55,11 @@ export function PasswordSet() {
             required
             fullWidth
             value={password}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
           />
 
           <div>
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              disabled={loading}
-              fullWidth
-            >
+            <Button variant="contained" color="primary" type="submit" disabled={loading} fullWidth>
               {loading && <SvgLoading className="w-6 h-6 mr-4" />}
               Set new password
             </Button>

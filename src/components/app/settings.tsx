@@ -1,20 +1,17 @@
-import React, { useState } from "react";
-import { useSubscription } from "@apollo/client";
-import { TextField, Button } from "components/ui";
-import { auth } from "utils/nhost";
-import { S_USER_GET_SELF } from "gql/users";
-import { s_userGetSelf } from "generated/s_userGetSelf";
+import React, { useState } from 'react';
+import { useSubscription } from '@apollo/client';
+import { TextField, Button } from 'components/ui';
+import { auth } from 'utils/nhost';
+import { S_USER_GET_SELF } from 'gql/users';
+import { s_userGetSelf } from 'generated/s_userGetSelf';
 
 function SettingsCurrent() {
-  const user_id = auth.getClaim("x-hasura-user-id");
-  const { loading, error, data } = useSubscription<s_userGetSelf>(
-    S_USER_GET_SELF,
-    {
-      variables: {
-        id: user_id,
-      },
-    }
-  );
+  const user_id = auth.getClaim('x-hasura-user-id');
+  const { loading, error, data } = useSubscription<s_userGetSelf>(S_USER_GET_SELF, {
+    variables: {
+      id: user_id,
+    },
+  });
 
   if (loading) {
     return <div>Loading..</div>;
@@ -28,8 +25,8 @@ function SettingsCurrent() {
 }
 
 function SettingsNewEmail() {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   // const { enqueueSnackbar } = useSnackbar();
@@ -50,7 +47,7 @@ function SettingsNewEmail() {
       setLoading(false);
     }
 
-    setEmail("");
+    setEmail('');
   }
 
   return (
@@ -63,9 +60,7 @@ function SettingsNewEmail() {
           fullWidth
           type="email"
           placeholder="New email"
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-            setEmail(e.target.value)
-          }
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setEmail(e.target.value)}
           value={email}
         />
         <Button
@@ -73,30 +68,22 @@ function SettingsNewEmail() {
           disabled={loading}
           // color="primary"
           type="submit"
-          className="settings-container-button"
-        >
+          className="settings-container-button">
           Set new email
         </Button>
       </form>
       {error && <div className="my-4 p-4 bg-red-200">{error}</div>}
       <div className="mt-4 p-4 border rounded">
-        You'll get a <i className="font-bold">ticket</i> in an email to the new
-        email addres. Use the <i className="font-bold">ticket</i> as this url:{" "}
+        You'll get a <i className="font-bold">ticket</i> in an email to the new email addres. Use the <i className="font-bold">ticket</i> as this url:{' '}
         <code className="text-sm">
           http://localhost:3000/new-email/
-          <span className="font-bold">{"<ticket>"}</span>
+          <span className="font-bold">{'<ticket>'}</span>
         </code>
         .
         <br />
         <br />
-        You can change your e-mail templates to match this new url. Read more
-        here:{" "}
-        <a
-          className="text-indigo-700"
-          href="https://docs.nhost.io/auth/email-templates"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        You can change your e-mail templates to match this new url. Read more here:{' '}
+        <a className="text-indigo-700" href="https://docs.nhost.io/auth/email-templates" target="_blank" rel="noopener noreferrer">
           https://docs.nhost.io/auth/email-templates
         </a>
         .
@@ -106,9 +93,9 @@ function SettingsNewEmail() {
 }
 
 function SettingsNewPassword() {
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [error, setError] = useState("");
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   // const { enqueueSnackbar } = useSnackbar();
@@ -131,8 +118,8 @@ function SettingsNewPassword() {
       setLoading(false);
     }
 
-    setOldPassword("");
-    setNewPassword("");
+    setOldPassword('');
+    setNewPassword('');
 
     // return enqueueSnackbar("New password set", {
     //   variant: "success",
@@ -149,9 +136,7 @@ function SettingsNewPassword() {
           fullWidth
           type="password"
           placeholder="Old password"
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-            setOldPassword(e.target.value)
-          }
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setOldPassword(e.target.value)}
           value={oldPassword}
         />
 
@@ -161,18 +146,11 @@ function SettingsNewPassword() {
           fullWidth
           type="password"
           placeholder="New password"
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-            setNewPassword(e.target.value)
-          }
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setNewPassword(e.target.value)}
           value={newPassword}
         />
 
-        <Button
-          variant="outlined"
-          disabled={loading}
-          type="submit"
-          className="settings-container-button"
-        >
+        <Button variant="outlined" disabled={loading} type="submit" className="settings-container-button">
           Set new password
         </Button>
 

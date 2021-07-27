@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface s_getTodos_todos {
-  __typename: "todos";
+  __typename: 'todos';
   id: gql_uuid;
   todo: string;
   done: boolean;

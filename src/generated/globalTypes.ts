@@ -11,170 +11,170 @@
  * unique or primary key constraints on table "auth.account_providers"
  */
 export enum auth_account_providers_constraint {
-  account_providers_account_id_auth_provider_key = "account_providers_account_id_auth_provider_key",
-  account_providers_auth_provider_auth_provider_unique_id_key = "account_providers_auth_provider_auth_provider_unique_id_key",
-  account_providers_pkey = "account_providers_pkey",
+  account_providers_account_id_auth_provider_key = 'account_providers_account_id_auth_provider_key',
+  account_providers_auth_provider_auth_provider_unique_id_key = 'account_providers_auth_provider_auth_provider_unique_id_key',
+  account_providers_pkey = 'account_providers_pkey',
 }
 
 /**
  * update columns of table "auth.account_providers"
  */
 export enum auth_account_providers_update_column {
-  account_id = "account_id",
-  auth_provider = "auth_provider",
-  auth_provider_unique_id = "auth_provider_unique_id",
-  created_at = "created_at",
-  id = "id",
-  updated_at = "updated_at",
+  account_id = 'account_id',
+  auth_provider = 'auth_provider',
+  auth_provider_unique_id = 'auth_provider_unique_id',
+  created_at = 'created_at',
+  id = 'id',
+  updated_at = 'updated_at',
 }
 
 /**
  * unique or primary key constraints on table "auth.account_roles"
  */
 export enum auth_account_roles_constraint {
-  account_roles_pkey = "account_roles_pkey",
-  user_roles_account_id_role_key = "user_roles_account_id_role_key",
+  account_roles_pkey = 'account_roles_pkey',
+  user_roles_account_id_role_key = 'user_roles_account_id_role_key',
 }
 
 /**
  * update columns of table "auth.account_roles"
  */
 export enum auth_account_roles_update_column {
-  account_id = "account_id",
-  created_at = "created_at",
-  id = "id",
-  role = "role",
+  account_id = 'account_id',
+  created_at = 'created_at',
+  id = 'id',
+  role = 'role',
 }
 
 /**
  * unique or primary key constraints on table "auth.accounts"
  */
 export enum auth_accounts_constraint {
-  accounts_email_key = "accounts_email_key",
-  accounts_new_email_key = "accounts_new_email_key",
-  accounts_pkey = "accounts_pkey",
-  accounts_user_id_key = "accounts_user_id_key",
+  accounts_email_key = 'accounts_email_key',
+  accounts_new_email_key = 'accounts_new_email_key',
+  accounts_pkey = 'accounts_pkey',
+  accounts_user_id_key = 'accounts_user_id_key',
 }
 
 /**
  * update columns of table "auth.accounts"
  */
 export enum auth_accounts_update_column {
-  active = "active",
-  created_at = "created_at",
-  custom_register_data = "custom_register_data",
-  default_role = "default_role",
-  email = "email",
-  id = "id",
-  is_anonymous = "is_anonymous",
-  mfa_enabled = "mfa_enabled",
-  new_email = "new_email",
-  otp_secret = "otp_secret",
-  password_hash = "password_hash",
-  ticket = "ticket",
-  ticket_expires_at = "ticket_expires_at",
-  updated_at = "updated_at",
-  user_id = "user_id",
+  active = 'active',
+  created_at = 'created_at',
+  custom_register_data = 'custom_register_data',
+  default_role = 'default_role',
+  email = 'email',
+  id = 'id',
+  is_anonymous = 'is_anonymous',
+  mfa_enabled = 'mfa_enabled',
+  new_email = 'new_email',
+  otp_secret = 'otp_secret',
+  password_hash = 'password_hash',
+  ticket = 'ticket',
+  ticket_expires_at = 'ticket_expires_at',
+  updated_at = 'updated_at',
+  user_id = 'user_id',
 }
 
 /**
  * unique or primary key constraints on table "auth.providers"
  */
 export enum auth_providers_constraint {
-  providers_pkey = "providers_pkey",
+  providers_pkey = 'providers_pkey',
 }
 
 /**
  * update columns of table "auth.providers"
  */
 export enum auth_providers_update_column {
-  provider = "provider",
+  provider = 'provider',
 }
 
 /**
  * unique or primary key constraints on table "auth.refresh_tokens"
  */
 export enum auth_refresh_tokens_constraint {
-  refresh_tokens_pkey = "refresh_tokens_pkey",
+  refresh_tokens_pkey = 'refresh_tokens_pkey',
 }
 
 /**
  * update columns of table "auth.refresh_tokens"
  */
 export enum auth_refresh_tokens_update_column {
-  account_id = "account_id",
-  created_at = "created_at",
-  expires_at = "expires_at",
-  refresh_token = "refresh_token",
+  account_id = 'account_id',
+  created_at = 'created_at',
+  expires_at = 'expires_at',
+  refresh_token = 'refresh_token',
 }
 
 /**
  * unique or primary key constraints on table "auth.roles"
  */
 export enum auth_roles_constraint {
-  roles_pkey = "roles_pkey",
+  roles_pkey = 'roles_pkey',
 }
 
 /**
  * update columns of table "auth.roles"
  */
 export enum auth_roles_update_column {
-  role = "role",
+  role = 'role',
 }
 
 /**
  * unique or primary key constraints on table "files"
  */
 export enum files_constraint {
-  files_pkey = "files_pkey",
+  files_pkey = 'files_pkey',
 }
 
 /**
  * update columns of table "files"
  */
 export enum files_update_column {
-  created_at = "created_at",
-  downloadable_url = "downloadable_url",
-  file_path = "file_path",
-  id = "id",
-  user_id = "user_id",
+  created_at = 'created_at',
+  downloadable_url = 'downloadable_url',
+  file_path = 'file_path',
+  id = 'id',
+  user_id = 'user_id',
 }
 
 /**
  * unique or primary key constraints on table "todos"
  */
 export enum todos_constraint {
-  todos_pkey = "todos_pkey",
+  todos_pkey = 'todos_pkey',
 }
 
 /**
  * update columns of table "todos"
  */
 export enum todos_update_column {
-  created_at = "created_at",
-  done = "done",
-  id = "id",
-  todo = "todo",
-  updated_at = "updated_at",
-  user_id = "user_id",
+  created_at = 'created_at',
+  done = 'done',
+  id = 'id',
+  todo = 'todo',
+  updated_at = 'updated_at',
+  user_id = 'user_id',
 }
 
 /**
  * unique or primary key constraints on table "users"
  */
 export enum users_constraint {
-  users_pkey = "users_pkey",
+  users_pkey = 'users_pkey',
 }
 
 /**
  * update columns of table "users"
  */
 export enum users_update_column {
-  avatar_url = "avatar_url",
-  created_at = "created_at",
-  display_name = "display_name",
-  id = "id",
-  updated_at = "updated_at",
+  avatar_url = 'avatar_url',
+  created_at = 'created_at',
+  display_name = 'display_name',
+  id = 'id',
+  updated_at = 'updated_at',
 }
 
 /**

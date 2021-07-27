@@ -1,20 +1,17 @@
-import React, { useState, useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { formatDistanceToNowStrict } from "date-fns";
-import { useMutation, useSubscription } from "@apollo/client";
-import { INSERT_FILE, S_GET_FILES, DELETE_FILES } from "gql/files";
-import { s_getFiles, s_getFilesVariables } from "generated/s_getFiles";
-import { storage } from "utils/nhost";
-import { BACKEND_ENDPOINT } from "utils/config";
-import { Button } from "components/ui";
+import React, { useState, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { formatDistanceToNowStrict } from 'date-fns';
+import { useMutation, useSubscription } from '@apollo/client';
+import { INSERT_FILE, S_GET_FILES, DELETE_FILES } from 'gql/files';
+import { s_getFiles, s_getFilesVariables } from 'generated/s_getFiles';
+import { storage } from 'utils/nhost';
+import { BACKEND_ENDPOINT } from 'utils/config';
+import { Button } from 'components/ui';
 
 export function FilesList() {
-  const { loading, data } = useSubscription<s_getFiles, s_getFilesVariables>(
-    S_GET_FILES,
-    {
-      variables: { limit: 40 },
-    }
-  );
+  const { loading, data } = useSubscription<s_getFiles, s_getFilesVariables>(S_GET_FILES, {
+    variables: { limit: 40 },
+  });
 
   const [
     deleteFile,
@@ -56,12 +53,7 @@ export function FilesList() {
           return (
             <tr key={file.id} className="odd:bg-gray-200">
               <td className="py-3">
-                <a
-                  className="pl-4 hover:text-indigo-600"
-                  href={file.downloadable_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a className="pl-4 hover:text-indigo-600" href={file.downloadable_url} target="_blank" rel="noopener noreferrer">
                   {file.file_path}
                 </a>
               </td>
@@ -76,9 +68,8 @@ export function FilesList() {
                   onClick={async () => {
                     const metadata = await storage.getMetadata(file.file_path);
                     console.log({ metadata });
-                    alert("check logs for metadta ");
-                  }}
-                >
+                    alert('check logs for metadta ');
+                  }}>
                   meta
                 </button>
               </td>
@@ -96,8 +87,7 @@ export function FilesList() {
                         },
                       },
                     });
-                  }}
-                >
+                  }}>
                   Remove
                 </button>
               </td>
@@ -114,10 +104,10 @@ export interface IFilesProps {}
 export function Files(props: IFilesProps) {
   const fileInput = useRef<HTMLInputElement>(null);
   const [fileData, setFileData] = useState<File | null>();
-  const [uploadState, setUploadState] = useState("");
+  const [uploadState, setUploadState] = useState('');
   const [uploadCompleted, setUploadCompleted] = useState(0);
 
-  console.log("inside files component");
+  console.log('inside files component');
 
   const [
     insertFile,
@@ -131,15 +121,15 @@ export function Files(props: IFilesProps) {
     }
 
     const uuid = uuidv4();
-    const extension = fileData.name.split(".").pop();
+    const extension = fileData.name.split('.').pop();
     const file_path = `/public/${uuid}.${extension}`;
 
     await storage.put(file_path, fileData, null, (d: any) => {
       setUploadCompleted((d.loaded / d.total) * 100);
     });
 
-    setUploadState("");
-    fileInput.current.value = "";
+    setUploadState('');
+    fileInput.current.value = '';
 
     const downloadable_url = `${BACKEND_ENDPOINT}/storage/o${file_path}`;
     await insertFile({
@@ -160,8 +150,7 @@ export function Files(props: IFilesProps) {
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit();
-            }}
-          >
+            }}>
             <div className="input-file-header">
               <input
                 type="file"
@@ -171,12 +160,7 @@ export function Files(props: IFilesProps) {
                 }}
                 ref={fileInput}
               />
-              <Button
-                color="primary"
-                variant="contained"
-                disabled={uploadState === "UPLOADING"}
-                type="submit"
-              >
+              <Button color="primary" variant="contained" disabled={uploadState === 'UPLOADING'} type="submit">
                 Upload
               </Button>
             </div>
@@ -184,21 +168,19 @@ export function Files(props: IFilesProps) {
         </div>
         <div className="py-6">
           <Button
-            disabled={uploadState === "UPLOADING"}
+            disabled={uploadState === 'UPLOADING'}
             onClick={async () => {
-              const metadata = await storage.getMetadata("/public/");
+              const metadata = await storage.getMetadata('/public/');
               console.log({ metadata });
-              alert("check logs for metadta ");
-            }}
-          >
+              alert('check logs for metadta ');
+            }}>
             Get /public/ metadata
           </Button>
         </div>
 
-        {uploadState === "UPLOADING" && (
+        {uploadState === 'UPLOADING' && (
           <div className="uploading-progress">
-            {uploadCompleted} %
-            {/* <LinearProgress variant="determinate" value={uploadCompleted} /> */}
+            {uploadCompleted} %{/* <LinearProgress variant="determinate" value={uploadCompleted} /> */}
           </div>
         )}
       </div>

@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface s_getFiles_files {
-  __typename: "files";
+  __typename: 'files';
   id: gql_uuid;
   created_at: gql_timestamptz;
   file_path: string;

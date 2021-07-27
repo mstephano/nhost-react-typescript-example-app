@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import gql from 'graphql-tag';
 
 export const S_USER_GET_SELF = gql`
   subscription s_userGetSelf($id: uuid!) {

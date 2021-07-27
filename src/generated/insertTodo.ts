@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { todos_insert_input } from "./globalTypes";
+import { todos_insert_input } from './globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: insertTodo
 // ====================================================
 
 export interface insertTodo_insert_todos_one {
-  __typename: "todos";
+  __typename: 'todos';
   id: gql_uuid;
 }
 

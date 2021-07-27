@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { files_insert_input } from "./globalTypes";
+import { files_insert_input } from './globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: insertFile
 // ====================================================
 
 export interface insertFile_insert_files_one {
-  __typename: "files";
+  __typename: 'files';
   id: gql_uuid;
 }
 

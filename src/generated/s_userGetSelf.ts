@@ -8,12 +8,12 @@
 // ====================================================
 
 export interface s_userGetSelf_users_by_pk_account {
-  __typename: "auth_accounts";
+  __typename: 'auth_accounts';
   email: gql_citext | null;
 }
 
 export interface s_userGetSelf_users_by_pk {
-  __typename: "users";
+  __typename: 'users';
   id: gql_uuid;
   display_name: string | null;
   avatar_url: string | null;

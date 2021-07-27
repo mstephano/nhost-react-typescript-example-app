@@ -1,6 +1,6 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-import { useAuth } from "react-nhost";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useAuth } from 'react-nhost';
 
 type AuthGateProps = {
   children: JSX.Element;

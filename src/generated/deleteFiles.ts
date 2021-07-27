@@ -3,14 +3,14 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { files_bool_exp } from "./globalTypes";
+import { files_bool_exp } from './globalTypes';
 
 // ====================================================
 // GraphQL mutation operation: deleteFiles
 // ====================================================
 
 export interface deleteFiles_delete_files {
-  __typename: "files_mutation_response";
+  __typename: 'files_mutation_response';
   /**
    * number of affected rows by the mutation
    */

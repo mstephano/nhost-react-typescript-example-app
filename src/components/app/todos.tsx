@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { useSubscription, useMutation } from "@apollo/client";
-import classNames from "classnames";
+import React, { useState } from 'react';
+import { useSubscription, useMutation } from '@apollo/client';
+import classNames from 'classnames';
 
-import { S_GET_TODOS, UPDATE_TODO, DELETE_TODOS } from "gql/todos";
-import { s_getTodos, s_getTodosVariables } from "generated/s_getTodos";
-import { TodosForm } from "./todos-form";
-import { getTodos_todos } from "generated/getTodos";
+import { S_GET_TODOS, UPDATE_TODO, DELETE_TODOS } from 'gql/todos';
+import { s_getTodos, s_getTodosVariables } from 'generated/s_getTodos';
+import { TodosForm } from './todos-form';
+import { getTodos_todos } from 'generated/getTodos';
 
 export interface ITodosProps {}
 
 export function Todos(props: ITodosProps) {
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState('all');
 
-  const { loading, data } = useSubscription<s_getTodos, s_getTodosVariables>(
-    S_GET_TODOS,
-    {
-      variables: { limit: 123 },
-    }
-  );
+  const { loading, data } = useSubscription<s_getTodos, s_getTodosVariables>(S_GET_TODOS, {
+    variables: { limit: 123 },
+  });
   const [updateTodo] = useMutation(UPDATE_TODO);
   const [deleteTodos] = useMutation(DELETE_TODOS);
 
@@ -38,11 +35,7 @@ export function Todos(props: ITodosProps) {
     }
 
     if (!data || data.todos.length === 0) {
-      return (
-        <div className="text-gray-500 text-center pt-8">
-          No todos. Create one!
-        </div>
-      );
+      return <div className="text-gray-500 text-center pt-8">No todos. Create one!</div>;
     }
 
     const { todos } = data;
@@ -53,11 +46,11 @@ export function Todos(props: ITodosProps) {
     });
 
     let todos_filtered;
-    if (filter === "active") {
+    if (filter === 'active') {
       todos_filtered = todos.filter((todo) => {
         return todo.done === false;
       });
-    } else if (filter === "completed") {
+    } else if (filter === 'completed') {
       todos_filtered = todos.filter((todo) => {
         return todo.done === true;
       });
@@ -67,23 +60,23 @@ export function Todos(props: ITodosProps) {
     }
 
     const buttonFilterAll = classNames([
-      "py-1 px-2 mx-3 outline-none",
+      'py-1 px-2 mx-3 outline-none',
       {
-        border: filter === "all",
+        border: filter === 'all',
       },
     ]);
 
     const buttonFilterActive = classNames([
-      "py-1 px-2 mx-3 outline-none",
+      'py-1 px-2 mx-3 outline-none',
       {
-        border: filter === "active",
+        border: filter === 'active',
       },
     ]);
 
     const buttonFilterCompleted = classNames([
-      "py-1 px-2 mx-3 outline-none",
+      'py-1 px-2 mx-3 outline-none',
       {
-        border: filter === "completed",
+        border: filter === 'completed',
       },
     ]);
 
@@ -91,26 +84,26 @@ export function Todos(props: ITodosProps) {
       <div className="pt-3">
         {todos_filtered.map((todo) => {
           const checkboxClasses = classNames([
-            "flex items-center justify-center",
-            "w-6",
-            "h-6",
-            "rounded-full",
-            "border",
-            "cursor-pointer",
-            "hover:shadow-lg",
-            "transition easy-in-out duration-150",
+            'flex items-center justify-center',
+            'w-6',
+            'h-6',
+            'rounded-full',
+            'border',
+            'cursor-pointer',
+            'hover:shadow-lg',
+            'transition easy-in-out duration-150',
             {
-              "text-teal-400": todo.done,
-              "border-teal-400": todo.done,
+              'text-teal-400': todo.done,
+              'border-teal-400': todo.done,
             },
           ]);
 
           const textClasses = classNames([
-            "pl-4",
-            "transition easy-in-out duration-150",
+            'pl-4',
+            'transition easy-in-out duration-150',
             {
-              "text-gray-600": todo.done,
-              "line-through": todo.done,
+              'text-gray-600': todo.done,
+              'line-through': todo.done,
             },
           ]);
 
@@ -120,21 +113,10 @@ export function Todos(props: ITodosProps) {
                 className={checkboxClasses}
                 onClick={() => {
                   toggleTodoItem(todo);
-                }}
-              >
+                }}>
                 {todo.done && (
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="check w-4 h-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="check w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 )}
               </div>
@@ -150,25 +132,22 @@ export function Todos(props: ITodosProps) {
             <button
               className={buttonFilterAll}
               onClick={() => {
-                setFilter("all");
-              }}
-            >
+                setFilter('all');
+              }}>
               All
             </button>
             <button
               className={buttonFilterActive}
               onClick={() => {
-                setFilter("active");
-              }}
-            >
+                setFilter('active');
+              }}>
               Active
             </button>
             <button
               className={buttonFilterCompleted}
               onClick={() => {
-                setFilter("completed");
-              }}
-            >
+                setFilter('completed');
+              }}>
               Completed
             </button>
           </div>
@@ -185,8 +164,7 @@ export function Todos(props: ITodosProps) {
                     },
                   },
                 });
-              }}
-            >
+              }}>
               Clear completed
             </button>
           </div>

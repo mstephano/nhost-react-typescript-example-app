@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-import { TextField } from "components/ui";
-import { INSERT_TODO } from "gql/todos";
-import { useMutation } from "@apollo/client";
+import React, { useState } from 'react';
+import { TextField } from 'components/ui';
+import { INSERT_TODO } from 'gql/todos';
+import { useMutation } from '@apollo/client';
 
 export interface ITodosFormProps {}
 
 export function TodosForm(props: ITodosFormProps) {
-  const [todoInput, setTodoInput] = useState("");
+  const [todoInput, setTodoInput] = useState('');
 
-  const [
-    addTodo,
-    { loading: mutationLoading, error: mutationError },
-  ] = useMutation(INSERT_TODO);
+  const [addTodo, { loading: mutationLoading, error: mutationError }] = useMutation(INSERT_TODO);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +25,7 @@ export function TodosForm(props: ITodosFormProps) {
       // error, we'll catch this error in `mutationError`.
     }
 
-    setTodoInput("");
+    setTodoInput('');
   };
 
   return (

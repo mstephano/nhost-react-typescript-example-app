@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Dashboard } from "components/app/dashboard";
-import { Todos } from "components/app/todos";
-import { Files } from "components/app/files";
-import { Settings } from "components/app/settings";
-import { Layout } from "components/layout";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Dashboard } from 'components/app/dashboard';
+import { Todos } from 'components/app/todos';
+import { Files } from 'components/app/files';
+import { Settings } from 'components/app/settings';
+import { Layout } from 'components/layout';
 
 export function RouterApp() {
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import { Header } from "components/app/header";
+import React from 'react';
+import { Header } from 'components/app/header';
 
 export interface IMainContainerProps {
   children: React.ReactNode;

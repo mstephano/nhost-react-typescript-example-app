@@ -1,3 +1,3 @@
-import { SvgLoading } from "./loading";
+import { SvgLoading } from './loading';
 
 export { SvgLoading };

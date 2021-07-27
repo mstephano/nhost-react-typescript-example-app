@@ -1,5 +1,5 @@
-import nhost from "nhost-js-sdk";
-import { BACKEND_ENDPOINT } from "utils/config";
+import nhost from 'nhost-js-sdk';
+import { BACKEND_ENDPOINT } from 'utils/config';
 
 const config = {
   base_url: BACKEND_ENDPOINT,

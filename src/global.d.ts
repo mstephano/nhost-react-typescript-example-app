@@ -7,11 +7,8 @@ interface useAuthProps {
   signedIn: boolean | null;
 }
 
-declare module "react-nhost" {
+declare module 'react-nhost' {
   export function NhostAuthProvider(auth: any): JSX.Element;
-  export function NhostApolloProvider(
-    auth: any,
-    gql_endpoint: string
-  ): JSX.Element;
+  export function NhostApolloProvider(auth: any, gql_endpoint: string): JSX.Element;
   export function useAuth(): useAuthProps;
 }
